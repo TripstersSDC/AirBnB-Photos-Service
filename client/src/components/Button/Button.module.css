@@ -1,0 +1,51 @@
+.btn{
+  padding: .1rem 1rem .1rem .5rem;
+  border: .1rem solid var(--black);
+  border-radius: .5rem;
+  color: var(--black);
+  background-color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+  height: 3.25rem;
+  overflow: hidden;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn > {
+  display: inline;
+}
+
+.btn > svg {
+  padding-right: .25rem;
+  height: 100%;
+}
+
+.allphotos {
+  min-width: fit-content;
+  white-space: nowrap;
+}
+
+.allphotos > svg {
+  width: 4rem;
+}
+
+.closebtn {
+  border: none;
+  background-color: rgba(34, 34, 34, 0.1);
+}
+
+.closebtn:hover {
+  background-color: rgba(34, 34, 34, 0.16);
+}
+
+.closebtn > svg {
+  width: 2.5rem;
+}

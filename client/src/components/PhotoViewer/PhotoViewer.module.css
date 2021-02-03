@@ -1,0 +1,87 @@
+.viewer {
+  position: relative;
+}
+
+.row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+.top {
+  height: 10vh;
+  margin: 4rem 4rem 0 4rem;
+}
+
+.middle {
+  height: 70vh;
+  margin: 0 4rem;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.bottom {
+  height: 10vh;
+  margin: 0 4rem 4rem 4rem;
+  padding-top: 2rem;
+}
+
+.centerhorizontal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.closebtn {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+
+.text {
+  font-size: 1.6rem;
+  text-align: center;
+  width: 100%;
+}
+
+.photo{
+  height: inherit;
+  width: inherit;
+  opacity: 0;
+  transition: opacity .15s ease-out .3s;
+}
+
+.visible {
+  opacity: 100;
+  transition: opacity .1s linear 0s;
+}
+
+.fadeIn {
+  opacity: 100;
+  transition: opacity .45s ease-out .5s;
+}
+
+.toggleFade {
+  animation: .45s phototransition;
+}
+
+@keyframes phototransition {
+  0% {
+    opacity: 100;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100;
+  }
+}
+
+.icon {
+  height: 1.7rem;
+  width: 1.7rem;
+}

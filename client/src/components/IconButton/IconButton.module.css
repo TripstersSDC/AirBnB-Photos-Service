@@ -1,0 +1,44 @@
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  overflow: hidden;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+.btn:hover {
+  background-color: #ff385d08;
+  transition:
+    -ms-transform 0.25s ease 0s,
+    -webkit-transform 0.25s ease 0s,
+    transform 0.25s ease 0s;
+}
+
+.btn:active {
+  transform: scale(0.92);
+}
+
+.borderBtn {
+  border: .05rem solid var(--grey);
+}
+
+.small {
+  border-radius: 1.5rem;
+  height: 2.75rem;
+  width: 2.75rem;
+}
+
+.large {
+  border-radius: 2.5rem;
+  padding: .5rem;
+  height: 5rem;
+  width: 5rem;
+}
+
+.hidden {
+  display: none;
+}
+
