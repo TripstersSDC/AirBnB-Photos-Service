@@ -17,12 +17,12 @@ function PhotoGrid() {
   const photosLoaded = photos.length > 0;
 
   const getPhotos = () => {
-    const propertyId = new URLSearchParams(window.location.search).get('propertyId') || '30506101';
+    const id = new URLSearchParams(window.location.search).get('propertyId');
 
-    axios.get(`/api/rooms/${propertyId}/photos`)
+    axios.get(`/api/rooms/${id}/photos`)
       .then((response) => {
-        setPhotos(response.data[0].photos);
-        setSelectedPhoto(response.data[0].photos[0]);
+        setPhotos(response.data.photos);
+        setSelectedPhoto(response.data.photos[0]);
       })
       // eslint-disable-next-line no-console
       .catch((error) => console.log(error));

@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 // Valid property ID Range: 30506101-30506200
 const faker = require('faker');
-const { PhotoCollection } = require('./index.js');
+const Photos = require('./Photos.js');
 
 const roomTypes = ['Living area', 'Full kitchen', 'Dining room', 'Full bathroom', 'Bedroom Area', 'Entry', 'Exterior', 'Patio'];
 
@@ -41,8 +41,8 @@ const propertyListingGenerator = () => {
 const sampleListings = propertyListingGenerator();
 
 const insertSampleListings = () => {
-  PhotoCollection.deleteMany()
-    .then(() => PhotoCollection.create(sampleListings))
+  Photos.deleteMany()
+    .then(() => Photos.create(sampleListings))
     .then((result) => console.log('Database seed successful!', result))
     .catch((error) => console.log('Database seed unsuccessful!', error))
     .then(() => process.exit());
