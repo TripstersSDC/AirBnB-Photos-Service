@@ -6,7 +6,7 @@ const { getPhotos } = require('../database/index.js');
 
 const app = express();
 const PORT = process.env.PORT || 3003;
-const PUBLIC_DIR = path.resolve(__dirname, '..', 'public');
+const PUBLIC_DIR = path.resolve(__dirname, '..', 'client', 'dist');
 
 app.use(compression());
 app.use(cors());

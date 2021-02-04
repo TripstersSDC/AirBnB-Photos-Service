@@ -19,7 +19,7 @@ function PhotoGrid() {
   const getPhotos = () => {
     const propertyId = new URLSearchParams(window.location.search).get('propertyId') || '30506101';
 
-    axios.get(`/api/home/${propertyId}/photos`)
+    axios.get(`/api/rooms/${propertyId}/photos`)
       .then((response) => {
         setPhotos(response.data[0].photos);
         setSelectedPhoto(response.data[0].photos[0]);

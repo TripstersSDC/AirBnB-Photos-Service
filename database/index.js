@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://database/fec', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://localhost/airbnb', { useNewUrlParser: true, useUnifiedTopology: true })
+// mongoose.connect('mongodb://database/fec', { useNewUrlParser: true, useUnifiedTopology: true })
   // eslint-disable-next-line no-console
   .then(() => console.log('Successfully connected to MongoDB!'))
   // eslint-disable-next-line no-console
