@@ -1,7 +1,7 @@
 {
-  "name": "photo-carousel-service",
+  "name": "Airbnb-Photos-Service",
   "version": "1.0.0",
-  "description": "Airbnb photo carousel service",
+  "description": "Airbnb photo  service",
   "keywords": [],
   "license": "ISC",
   "author": "Anthony Patterson",
@@ -53,7 +53,7 @@
     "@testing-library/user-event": "^12.6.2",
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.2",
-    "eslint": "^7.17.0",
+    "eslint": "^7.19.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
