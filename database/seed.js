@@ -1,51 +1,23 @@
+/* eslint-disable quotes */
 /* eslint-disable no-console */
-// Valid property ID Range: 30506101-30506200
-const faker = require('faker');
-const Models = require('./orm.js');
+const fs = require('fs');
+const path = require('path');
 
-const roomTypes = ['Living area', 'Full kitchen', 'Dining room', 'Full bathroom', 'Bedroom Area', 'Entry', 'Exterior', 'Patio'];
-
-const photoGenerator = (propertyId, photoId) => ({
-  id: photoId,
-  imageUrl: `https://loremflickr.com/1200/880/houses/all?lock=${propertyId}${photoId}`,
-  thumbnailUrl: `https://loremflickr.com/600/450/houses/all?lock=${propertyId}${photoId}`,
-  description: faker.lorem.sentence(),
-  room: roomTypes[Math.floor(Math.random() * (roomTypes.length - 1))],
-});
-
-const photoListGenerator = (propertyId) => {
-  const totalPhotos = Math.floor(Math.random() * 10 + 5);
-  const photos = [];
-  for (let photoId = 1; photoId < totalPhotos; photoId += 1) {
-    photos.push(photoGenerator(propertyId, photoId));
+const filePath = path.join(__dirname, 'CSV');
+const ws = fs.createWriteStream(`${filePath}/pictures.csv`);
+ws.write(`picid, fkitemid, largePics, thumbnails\n`, 'utf-8');
+let itemid = 1;
+for (let i = 1; i <= 10000000; i += 1) {
+  const random = Math.floor(Math.random() * (1000 - 1) + 1);
+  const largePics = `https://sdc-thumbnail-photos.s3.amazonaws.com/thumbnailPhotos/image${random}.jpg`;
+  const thumbnails = `https://sdc-thumbnail-photos.s3.amazonaws.com/thumbnailPhotos/image${random}.jpg`;
+  const record = `${i}, ${itemid}, ${largePics}, ${thumbnails}`;
+  ws.write(`${record}\n`, 'utf-8');
+  if (i % 9 === 0) {
+    itemid += 1;
   }
-
-  return photos;
-};
-
-const propertyListingGenerator = () => {
-  const listings = [];
-
-  for (let id = 30506101; id <= 30506200; id += 1) {
-    const photos = photoListGenerator(id);
-    const propertyListing = {
-      listingId: id,
-      photos,
-    };
-    listings.push(propertyListing);
+  if (i % 100000 === 0) {
+    console.log(`process: ${i / 100000}%`);
   }
-
-  return listings;
-};
-
-const sampleListings = propertyListingGenerator();
-
-const insertSampleListings = () => {
-  Photos.deleteMany()
-    .then(() => Photos.create(sampleListings))
-    .then((result) => console.log('Database seed successful!', result))
-    .catch((error) => console.log('Database seed unsuccessful!', error))
-    .then(() => process.exit());
-};
-
-insertSampleListings();
+}
+ws.end();

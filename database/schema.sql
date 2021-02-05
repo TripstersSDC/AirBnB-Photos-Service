@@ -12,6 +12,6 @@ CREATE TABLE IF NOT EXISTS photos(
 CREATE TABLE IF NOT EXISTS listings(
   listing_id SERIAL PRIMARY KEY,
   listing_name varchar NOT NULL,
-  lising_description timestamp NOT NULL
+  lising_description varchar NOT NULL
 );
 
