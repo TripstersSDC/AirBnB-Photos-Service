@@ -1,23 +1,22 @@
 /* eslint-disable no-console */
-const { Sequelize } = require('sequelize');
+const { Pool } = require('pg');
+
 // ..for local
 const connectionString = 'postgres://anthonypatterson@localhost:5432/airbnb';
 
 // for ec2
 // const connectionString = 'postgres:///database/docker_data';
 
-const db = new Sequelize(connectionString);
+const db = new Pool({
+  connectionString,
+});
 
-async function testCall() {
-  db.authenticate()
-    .then(() => {
-      console.log('Connection has been established successfully.');
-    })
-    .catch((error) => {
-      console.error('Unable to connect to the database:', error);
-    });
-}
-
-testCall();
+db.connect(function(err) {
+  if (err) {
+    return console.error('error: ' + err.message);
+  }
+  console.log('Connected to the Postgres server.');
+});
+// eslint-disable-next-line max-len
 
 module.exports = db;
