@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-console */
 const { DataTypes } = require('sequelize');
 const db = require('./index.js');
 
@@ -42,7 +44,7 @@ const Listings = db.define('Listings', {
 async function syncModels() {
   db.sync({ force: true })
     .then(() => {
-      console.log("All models were synchronized successfully.");
+      console.log('All models were synchronized successfully.');
     })
     .catch((error) => {
       console.error('Unable to sync models, error was:', error);

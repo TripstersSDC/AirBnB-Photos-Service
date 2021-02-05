@@ -1,4 +1,5 @@
-const { Sequelize, DataTypes } = require('sequelize');
+/* eslint-disable no-console */
+const { Sequelize } = require('sequelize');
 // ..for local
 const connectionString = 'postgres://anthonypatterson@localhost:5432/airbnb';
 
