@@ -1,19 +1,22 @@
-/* eslint-disable no-console */
-const mongoose = require('mongoose');
-
+const { Sequelize, DataTypes } = require('sequelize');
 // ..for local
-const mongoUrl = 'mongodb://localhost/airbnb';
+const connectionString = 'postgres://anthonypatterson@localhost:5432/airbnb';
 
 // for ec2
-// const mongoUrl = 'mongodb://database/docker_data';
+// const connectionString = 'postgres:///database/docker_data';
 
-// eslint-disable-next-line max-len
-mongoose.connect(mongoUrl, { server: { reconnectTries: Number.MAX_VALUE }, useNewUrlParser: true, useUnifiedTopology: true });
-const db = mongoose.connection;
+const db = new Sequelize(connectionString);
 
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', () => {
-  console.log('Successfully connected to mongo!');
-});
+async function testCall() {
+  db.authenticate()
+    .then(() => {
+      console.log('Connection has been established successfully.');
+    })
+    .catch((error) => {
+      console.error('Unable to connect to the database:', error);
+    });
+}
+
+testCall();
 
 module.exports = db;
