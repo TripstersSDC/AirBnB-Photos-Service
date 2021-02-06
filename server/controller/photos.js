@@ -5,15 +5,13 @@ const db = require('../../database');
 const photos = (req, res) => {
   const { propertyId } = req.params;
 
-//   const query = Photos.where({ listingId: propertyId });
-//   // query.findOne((err, photoCollection) => {
-//   //   if (err) {
-//   //     res.status(404).send(err);
-//   //   } else {
-//   //     res.send(photoCollection);
-//   //   }
-//   // });
-// };
+  db.query(`SELECT * FROM photos WHERE listing_id = ${propertyId}`, (error, results) => {
+    if (error) {
+      throw error;
+    }
+    console.log(results);
+    res.status(200).json(results.rows);
+  });
 };
 
 module.exports = photos;
