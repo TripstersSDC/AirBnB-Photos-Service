@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const faker = require('faker');
 
 const filePath = path.join(__dirname, 'CSV');
 const ws = fs.createWriteStream(`${filePath}/homePhotos.csv`);
@@ -12,8 +13,8 @@ for (let i = 1; i <= 100; i += 1) {
   const largePics = `https://sdc-thumbnail-photos.s3.amazonaws.com/thumbnailPhotos/image${random}.jpg`;
   const thumbnails = `https://sdc-large-photos.s3.amazonaws.com/largePhotos/image${random}.jpg`;
   const description = faker.lorem.sentence();
-  room: roomTypes[Math.floor(Math.random() * (roomTypes.length - 1))],
-  const record = `${i}, ${itemid}, ${largePics}, ${thumbnails}`;
+  const room = roomTypes[Math.floor(Math.random() * (roomTypes.length - 1))];
+  const record = `${i}, ${itemid}, ${largePics}, ${thumbnails}, ${description}, ${room}`;
   ws.write(`${record}\n`, 'utf-8');
   if (i % 9 === 0) {
     itemid += 1;
