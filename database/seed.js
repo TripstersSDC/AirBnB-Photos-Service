@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 // Valid property ID Range: 30506101-30506200
 const faker = require('faker');
-const Photos = require('./Photos.js');
+const Models = require('./orm.js');
 
 const roomTypes = ['Living area', 'Full kitchen', 'Dining room', 'Full bathroom', 'Bedroom Area', 'Entry', 'Exterior', 'Patio'];
 
