@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/no-unresolved */
 const db = require('../../database');
@@ -7,7 +8,7 @@ const photos = (req, res) => {
 
   // look into making into one query
   // consider join
-  db.query(`SELECT * FROM photos WHERE listing_id = ${propertyId}`, (error, results) => {
+  db.query(`SELECT * FROM listings INNER JOIN photos ON listing_id = fklisting_id WHERE listing_id = ${propertyId}`, (error, results) => {
     if (error) {
       throw error;
     }
