@@ -1,7 +1,7 @@
 node_modules
+database/seed/CSV
 public/bundle.js
 coverage
 .DS_Store
 .eslintrc.js
 .eslintignore
-/database/seed/CSV
