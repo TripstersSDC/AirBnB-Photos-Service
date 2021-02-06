@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 const Photos = require('../../database/Photos.js');
 
 const photos = (req, res) => {

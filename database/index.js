@@ -11,7 +11,7 @@ const db = new Pool({
   connectionString,
 });
 
-db.connect(function(err) {
+db.connect( function(err) {
   if (err) {
     return console.error('error: ' + err.message);
   }
