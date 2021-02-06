@@ -1,4 +1,5 @@
 // generate data
-const data = require('./photoGenerator')
+const photos = require('./photoGenerator')
+const listings = require('./listingsGenerator')
 
 // insert data
