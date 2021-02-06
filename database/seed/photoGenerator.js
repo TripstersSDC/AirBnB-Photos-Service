@@ -2,8 +2,8 @@ const fs = require('fs')
 const path = require('path');
 const faker = require('faker')
 
-const lines = 901;
-let listing_id = 101;
+const lines = 30000001;
+let listing_id = 10000001;
 const filePath = path.join(__dirname, 'CSV');
 const stream = fs.createWriteStream(`${filePath}/photos.csv`);
 
@@ -17,8 +17,8 @@ const createPost = (i) => {
 
   const record = `${i}, ${listing_id}, ${largePics}, ${thumbnails}, ${description}, ${room}`;
 
-  if (i % 9 === 0 ) {
-    console.log(`process: ${100 - (i / 9)}%`)
+  if (i % 300000 === 0 ) {
+    console.log(`process: ${100 - (i / 300000)}%`)
   }
 
   return `${record}\n`
@@ -31,7 +31,7 @@ const startWriting = (writeStream, encoding, done) => {
     let canWrite = true
     do {
       i--
-      if (i % 9 === 0){
+      if (i % 3 === 0){
         listing_id --;
       }
 
