@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 const express = require('express');
+const newRelic = require('newrelic');
 const path = require('path');
 const compression = require('compression');
 // const { getPhotos } = require('../database/index.js');
