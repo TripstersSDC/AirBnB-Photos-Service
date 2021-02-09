@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/no-unresolved */
 const db = require('../../database');
+const formatData = require('./formatData.js');
 
 const photos = (req, res) => {
   const { propertyId } = req.params;
@@ -12,8 +13,12 @@ const photos = (req, res) => {
     if (error) {
       throw error;
     }
-    console.log(results);
-    res.status(200).json(results.rows);
+    const queryData = results.rows;
+
+    const responseData = formatData(queryData, propertyId);
+    console.log(responseData);
+
+    res.status(200).json(responseData);
   });
 };
 
