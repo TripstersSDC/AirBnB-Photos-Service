@@ -5,3 +5,5 @@ coverage
 .DS_Store
 .eslintrc.js
 .eslintignore
+newrelic.js
+newrelic_agent.log
