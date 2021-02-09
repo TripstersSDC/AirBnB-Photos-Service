@@ -4,7 +4,7 @@ const faker = require('faker')
 
 const lines = 101;
 const filePath = path.join(__dirname, 'CSV');
-const stream = fs.createWriteStream(`${filePath}/listings2.csv`);
+const stream = fs.createWriteStream(`${filePath}/listings.csv`);
 
 const createPost = (i) => {
   const name = faker.lorem.sentence();

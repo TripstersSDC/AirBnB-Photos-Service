@@ -5,7 +5,7 @@ const formatData = (input, propertyId) => {
     photos: [],
   };
 
-  let baseIndex = 1;
+  const baseIndex = 1;
 
   const mapData = (queryResults) => {
     queryResults.map((item, index) => {
@@ -20,10 +20,6 @@ const formatData = (input, propertyId) => {
     });
   };
 
-  mapData(input);
-  baseIndex += 3;
-  mapData(input);
-  baseIndex += 3;
   mapData(input);
   return responseData;
 };
