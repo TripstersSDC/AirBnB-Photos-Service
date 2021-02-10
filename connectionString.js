@@ -2,8 +2,7 @@ const connection = {
   user: 'postgres',
   password: 'ubuntu12345!@#$%',
   host: '54.144.194.38',
-  dialect: 'postgres',
-  database: 'postgres',
+  database: 'airbnb',
   port: 5432,
   max: 200,
 };
