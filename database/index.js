@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 
 const { Pool } = require('pg');
-const connection = require('../connectionString')
+const connection = require('../connectionString.txt')
 
 const db = new Pool(connection);
 
