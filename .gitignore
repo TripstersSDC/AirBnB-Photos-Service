@@ -7,4 +7,3 @@ coverage
 .eslintignore
 newrelic.js
 newrelic_agent.log
-connectionString.js
