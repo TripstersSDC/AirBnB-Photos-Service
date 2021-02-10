@@ -1,15 +1,9 @@
 /* eslint-disable no-console */
+
 const { Pool } = require('pg');
+const connection = require('../connecitonString')
 
-// ..for local
-const connectionString = 'postgres://anthonypatterson@localhost:5432/airbnb';
-
-// for ec2
-// const connectionString = 'postgres:///database/docker_data';
-
-const db = new Pool({
-  connectionString,
-});
+const db = new Pool(connection);
 
 db.connect( function(err) {
   if (err) {
