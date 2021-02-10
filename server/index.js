@@ -7,7 +7,7 @@ const compression = require('compression');
 // const { getPhotos } = require('../database/index.js');
 
 const app = express();
-const PORT = process.env.port || 3003;
+const PORT = 80;
 const PUBLIC_DIR = path.resolve(__dirname, '..', 'client', 'dist');
 const router = require('./router');
 
